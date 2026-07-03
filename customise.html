@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Customisation Brief — Hypnosis Journey</title>
+<meta name="description" content="Tell us how you'd like your Hypnosis Journey website customised — colours, logo, fonts, content, and any changes you'd like." />
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=Lora:wght@400;500;600&family=Playfair+Display:wght@500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='none' stroke='%238b7ff5' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%2358d6c9' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='%238b7ff5'/%3E%3C/svg%3E" />
+<style>
+:root{
+  --violet:#8b7ff5; --violet-600:#6c5ce7; --violet-300:#b7aefc; --teal:#58d6c9;
+  --ink:#14102e; --ink-2:#1b1540; --lavender:#efeaff; --cream:#faf8ff; --paper:#fff;
+  --text:#26214a; --text-soft:#5b5580; --border:#e6e0f5;
+  --font-display:"Fraunces",Georgia,serif; --font-body:"Inter",system-ui,sans-serif;
+  --radius:16px; --shadow-sm:0 2px 10px rgba(28,20,64,.07); --shadow-md:0 18px 40px -18px rgba(40,28,110,.35);
+  /* live-preview tokens (updated by JS) */
+  --p-primary:#6c5ce7; --p-accent:#58d6c9; --p-dark:#1b1540; --p-light:#faf8ff;
+  --p-head:"Fraunces",serif; --p-body:"Inter",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;}
+body{margin:0;font-family:var(--font-body);color:var(--text);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:var(--font-display);font-weight:500;line-height:1.15;margin:0;letter-spacing:-.01em;}
+h1 em{font-style:italic;color:var(--violet-600);}
+a{color:var(--violet-600);}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(1.1rem,4vw,2rem);}
+
+/* Header */
+.top{background:radial-gradient(120% 140% at 80% 0%,#2a1f6b,var(--ink-2) 55%,var(--ink));color:#ece9ff;padding:clamp(2.5rem,6vw,4rem) 0 clamp(3rem,7vw,4.5rem);}
+.brand{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--font-display);font-size:1.2rem;color:#fff;margin-bottom:2rem;}
+.brand em{font-style:italic;color:var(--violet-300);}
+.brand svg{color:var(--teal);}
+.eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin:0 0 .8rem;}
+.top h1{font-size:clamp(2rem,5vw,3.1rem);color:#fff;margin-bottom:1rem;}
+.top h1 em{color:var(--violet-300);}
+.top p{color:#b3accf;max-width:52ch;font-size:1.05rem;}
+.progress-note{margin-top:1.5rem;font-size:.9rem;color:#b3accf;display:flex;align-items:center;gap:.5rem;}
+.progress-note b{color:#fff;}
+
+/* Layout */
+.layout{display:grid;grid-template-columns:1fr 400px;gap:2.5rem;align-items:start;padding:clamp(2rem,5vw,3.5rem) 0 5rem;}
+@media(max-width:960px){.layout{grid-template-columns:1fr;}}
+
+/* Cards / sections */
+.block{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:clamp(1.3rem,3vw,2rem);box-shadow:var(--shadow-sm);margin-bottom:1.5rem;}
+.block>h2{font-size:1.4rem;margin-bottom:.35rem;display:flex;align-items:center;gap:.6rem;}
+.block-num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--lavender);color:var(--violet-600);font-family:var(--font-body);font-weight:700;font-size:.9rem;flex:none;}
+.block>.hint{color:var(--text-soft);font-size:.92rem;margin:.1rem 0 1.3rem;}
+
+label{display:block;font-size:.85rem;font-weight:600;margin:0 0 .4rem;}
+.field{margin-bottom:1.1rem;}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+@media(max-width:560px){.row{grid-template-columns:1fr;}}
+input[type=text],input[type=email],input[type=tel],input[type=url],textarea,select{
+  width:100%;font-family:var(--font-body);font-size:1rem;color:var(--text);background:#fff;
+  border:1px solid var(--border);border-radius:11px;padding:.72rem .9rem;transition:border-color .2s,box-shadow .2s;
+}
+textarea{resize:vertical;min-height:80px;}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--violet);box-shadow:0 0 0 3px rgba(139,127,245,.18);}
+.help{font-size:.8rem;color:var(--text-soft);margin:.35rem 0 0;}
+
+/* Colour pickers */
+.swatch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;}
+.swatch{border:1px solid var(--border);border-radius:12px;padding:.9rem;display:flex;align-items:center;gap:.75rem;}
+.swatch input[type=color]{-webkit-appearance:none;appearance:none;width:48px;height:48px;border:none;border-radius:10px;background:none;cursor:pointer;padding:0;flex:none;}
+.swatch input[type=color]::-webkit-color-swatch-wrapper{padding:0;}
+.swatch input[type=color]::-webkit-color-swatch{border:1px solid rgba(0,0,0,.1);border-radius:10px;}
+.swatch .sw-label{font-weight:600;font-size:.85rem;}
+.swatch .sw-hex{font-size:.78rem;color:var(--text-soft);font-family:ui-monospace,monospace;}
+
+/* Palette presets */
+.presets{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.3rem;}
+.preset{cursor:pointer;border:1px solid var(--border);background:#fff;border-radius:999px;padding:.4rem .5rem .4rem .5rem;display:inline-flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:500;color:var(--text);transition:border-color .2s,transform .15s;}
+.preset:hover{border-color:var(--violet);transform:translateY(-1px);}
+.preset .dots{display:inline-flex;}
+.preset .dots i{width:16px;height:16px;border-radius:50%;display:block;margin-left:-5px;border:2px solid #fff;box-shadow:0 1px 2px rgba(0,0,0,.15);}
+.preset .dots i:first-child{margin-left:0;}
+
+/* Logo upload */
+.uploader{border:2px dashed var(--border);border-radius:14px;padding:1.5rem;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;}
+.uploader:hover,.uploader.drag{border-color:var(--violet);background:var(--lavender);}
+.uploader input{display:none;}
+.uploader .up-icon{font-size:1.8rem;color:var(--violet-600);}
+.uploader p{margin:.4rem 0 0;font-size:.9rem;color:var(--text-soft);}
+.logo-preview{margin-top:1rem;display:none;align-items:center;gap:1rem;background:var(--lavender);border-radius:12px;padding:.8rem 1rem;}
+.logo-preview.show{display:flex;}
+.logo-preview img{max-height:52px;max-width:160px;background:#fff;border-radius:8px;padding:4px;}
+.logo-preview .rm{margin-left:auto;background:none;border:none;color:var(--text-soft);cursor:pointer;font-size:.85rem;text-decoration:underline;}
+
+/* Fonts */
+.fontrow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+@media(max-width:560px){.fontrow{grid-template-columns:1fr;}}
+
+/* Content sections accordion */
+.sec{border:1px solid var(--border);border-radius:12px;margin-bottom:.75rem;overflow:hidden;}
+.sec>summary{cursor:pointer;padding:.9rem 1rem;font-weight:600;display:flex;align-items:center;gap:.6rem;list-style:none;}
+.sec>summary::-webkit-details-marker{display:none;}
+.sec>summary::before{content:"+";color:var(--violet-600);font-weight:700;font-size:1.1rem;width:1rem;}
+.sec[open]>summary::before{content:"–";}
+.sec .sec-body{padding:0 1rem 1rem;}
+.orig{font-size:.85rem;color:var(--text-soft);background:var(--cream);border-left:3px solid var(--violet-300);padding:.5rem .75rem;border-radius:0 8px 8px 0;margin:0 0 .7rem;}
+
+/* Checkbox grid */
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}
+@media(max-width:560px){.checks{grid-template-columns:1fr;}}
+.check{display:flex;gap:.6rem;align-items:flex-start;border:1px solid var(--border);border-radius:11px;padding:.7rem .8rem;cursor:pointer;transition:border-color .2s,background .2s;}
+.check:hover{border-color:var(--violet-300);}
+.check input{margin-top:.2rem;accent-color:var(--violet-600);width:18px;height:18px;flex:none;}
+.check span{font-size:.9rem;}
+.check small{display:block;color:var(--text-soft);font-size:.78rem;}
+
+/* Priority radios */
+.prio{display:flex;flex-wrap:wrap;gap:.5rem;}
+.prio label{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--border);border-radius:999px;padding:.45rem .9rem;cursor:pointer;font-weight:500;font-size:.9rem;margin:0;}
+.prio input{accent-color:var(--violet-600);}
+
+/* Sticky preview */
+.preview-col{position:sticky;top:1.5rem;}
+.preview-card{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-md);overflow:hidden;}
+.preview-card>.pv-head{padding:.8rem 1rem;border-bottom:1px solid var(--border);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-soft);display:flex;justify-content:space-between;align-items:center;}
+.pv-dot{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px rgba(88,214,201,.25);}
+.mock{background:var(--p-dark);color:#fff;padding:1.6rem 1.4rem;}
+.mock-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.6rem;}
+.mock-logo{display:flex;align-items:center;gap:.45rem;font-family:var(--p-head);font-size:1rem;}
+.mock-logo img{max-height:26px;max-width:90px;}
+.mock-logo .ml-ring{width:22px;height:22px;border:2px solid var(--p-accent);border-radius:50%;position:relative;flex:none;}
+.mock-logo .ml-ring::after{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--p-primary);}
+.mock-nav .mn-links{display:flex;gap:.7rem;font-size:.62rem;color:rgba(255,255,255,.6);}
+.mock-eyebrow{font-family:var(--p-body);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--p-accent);margin-bottom:.5rem;}
+.mock-h{font-family:var(--p-head);font-size:1.55rem;line-height:1.12;margin-bottom:.6rem;}
+.mock-h em{font-style:italic;color:var(--p-primary);filter:brightness(1.5);}
+.mock-p{font-family:var(--p-body);font-size:.78rem;color:rgba(255,255,255,.7);margin-bottom:1rem;}
+.mock-btn{display:inline-block;font-family:var(--p-body);font-weight:600;font-size:.75rem;background:var(--p-primary);color:#fff;padding:.55rem 1.1rem;border-radius:999px;}
+.mock-btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.35);margin-left:.5rem;}
+.mock-light{background:var(--p-light);padding:1.3rem 1.4rem;}
+.mock-cardsample{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:1rem;box-shadow:0 8px 20px -12px rgba(40,28,110,.3);}
+.mock-cardsample .mc-icon{width:34px;height:34px;border-radius:9px;background:color-mix(in srgb,var(--p-primary) 15%,#fff);color:var(--p-primary);display:grid;place-items:center;font-size:1rem;margin-bottom:.5rem;}
+.mock-cardsample h4{font-family:var(--p-head);font-weight:500;font-size:.95rem;margin:0 0 .25rem;color:#26214a;}
+.mock-cardsample p{font-family:var(--p-body);font-size:.72rem;color:#5b5580;margin:0;}
+.mock-cardsample .tag{display:inline-block;margin-top:.6rem;font-family:var(--p-body);font-size:.7rem;font-weight:600;color:var(--p-primary);}
+
+/* Actions */
+.actions{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:1.3rem;margin-top:1.5rem;}
+.actions h3{font-size:1.05rem;margin-bottom:.3rem;}
+.actions .hint{font-size:.85rem;color:var(--text-soft);margin:0 0 1rem;}
+.btn{display:flex;width:100%;align-items:center;justify-content:center;gap:.5rem;font-family:var(--font-body);font-weight:600;font-size:.95rem;padding:.8rem 1.2rem;border-radius:11px;border:1px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s;margin-bottom:.6rem;}
+.btn-primary{background:var(--violet-600);color:#fff;box-shadow:0 10px 22px -10px rgba(108,92,231,.7);}
+.btn-primary:hover{transform:translateY(-2px);}
+.btn-secondary{background:#fff;color:var(--violet-600);border-color:var(--border);}
+.btn-secondary:hover{border-color:var(--violet);}
+.toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,120%);background:var(--ink);color:#fff;padding:.75rem 1.2rem;border-radius:12px;font-size:.9rem;box-shadow:var(--shadow-md);transition:transform .35s cubic-bezier(.22,.61,.36,1);z-index:50;}
+.toast.show{transform:translate(-50%,0);}
+:focus-visible{outline:3px solid var(--violet);outline-offset:2px;}
+.foot{text-align:center;color:var(--text-soft);font-size:.85rem;padding:2rem 0 3rem;}
+.foot a{font-weight:600;}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="brand">
+      <svg viewBox="0 0 32 32" width="26" height="26"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".5"/><circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".8"/><circle cx="16" cy="16" r="3" fill="currentColor"/></svg>
+      Hypnosis <em>Journey</em>
+    </span>
+    <p class="eyebrow">Website Customisation Review</p>
+    <h1>Let's make it <em>yours</em></h1>
+    <p>Use this quick brief to tell us exactly how you'd like your website customised — brand colours, your logo, fonts, wording, and any other changes. Everything you pick updates the live preview on the right as you go. When you're done, hit <b>Send brief</b> and it'll come straight to us.</p>
+    <p class="progress-note">✏️ <b>Nothing is saved automatically</b> — please finish in one sitting and send at the end.</p>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="layout">
+
+  <!-- FORM COLUMN -->
+  <form id="brief" class="form-col">
+
+    <!-- 1. Brand basics -->
+    <section class="block">
+      <h2><span class="block-num">1</span> Brand basics</h2>
+      <p class="hint">The essentials that appear across the site.</p>
+      <div class="row">
+        <div class="field"><label for="bizname">Business name</label><input type="text" id="bizname" value="Hypnosis Journey" /></div>
+        <div class="field"><label for="tagline">Tagline</label><input type="text" id="tagline" value="The power to transform your life lies within you" /></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="email">Contact email</label><input type="email" id="email" placeholder="hello@yourdomain.com" /></div>
+        <div class="field"><label for="phone">Phone (optional)</label><input type="tel" id="phone" placeholder="+61 ..." /></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="address">Address / location (optional)</label><input type="text" id="address" placeholder="Suburb, City — or 'Online only'" /></div>
+        <div class="field"><label for="booking">Booking link (optional)</label><input type="url" id="booking" placeholder="https://calendly.com/..." /></div>
+      </div>
+      <div class="field"><label for="socials">Social media links (optional)</label><input type="text" id="socials" placeholder="Instagram, Facebook, LinkedIn URLs..." /></div>
+    </section>
+
+    <!-- 2. Logo -->
+    <section class="block">
+      <h2><span class="block-num">2</span> Your logo</h2>
+      <p class="hint">Upload your logo to see it in the preview. PNG or SVG with a transparent background works best.</p>
+      <label class="uploader" id="drop" for="logo">
+        <input type="file" id="logo" accept="image/*" />
+        <div class="up-icon">⬆</div>
+        <strong>Click to upload</strong> or drag &amp; drop
+        <p>PNG, SVG, or JPG — up to ~2&nbsp;MB</p>
+      </label>
+      <div class="logo-preview" id="logoPrev">
+        <img id="logoImg" alt="Your logo preview" />
+        <div><strong id="logoName">logo.png</strong><br /><small style="color:var(--text-soft)">Looks good in the preview →</small></div>
+        <button type="button" class="rm" id="logoRemove">Remove</button>
+      </div>
+      <p class="help">No logo yet? Leave this blank — we'll keep the circular mark shown in the preview, or design one for you on request.</p>
+    </section>
+
+    <!-- 3. Colours -->
+    <section class="block">
+      <h2><span class="block-num">3</span> Colours</h2>
+      <p class="hint">Start from a preset, then fine-tune. Watch the preview update instantly.</p>
+      <div class="presets" id="presets">
+        <button type="button" class="preset" data-c="6c5ce7,58d6c9,1b1540,faf8ff"><span class="dots"><i style="background:#6c5ce7"></i><i style="background:#58d6c9"></i><i style="background:#1b1540"></i></span>Indigo &amp; Teal <small style="color:var(--text-soft)">(current)</small></button>
+        <button type="button" class="preset" data-c="c98a5e,7ba88f,2e2419,fbf7f0"><span class="dots"><i style="background:#c98a5e"></i><i style="background:#7ba88f"></i><i style="background:#2e2419"></i></span>Warm Sand</button>
+        <button type="button" class="preset" data-c="2f8f83,d98b64,15302c,f4f9f7"><span class="dots"><i style="background:#2f8f83"></i><i style="background:#d98b64"></i><i style="background:#15302c"></i></span>Forest Calm</button>
+        <button type="button" class="preset" data-c="c56b8e,e0a9a0,32202a,fdf4f6"><span class="dots"><i style="background:#c56b8e"></i><i style="background:#e0a9a0"></i><i style="background:#32202a"></i></span>Rose Quartz</button>
+        <button type="button" class="preset" data-c="3a6ea5,58c6d6,10233a,f2f8fc"><span class="dots"><i style="background:#3a6ea5"></i><i style="background:#58c6d6"></i><i style="background:#10233a"></i></span>Ocean</button>
+        <button type="button" class="preset" data-c="4a4a4a,b89b5e,1a1a1a,f7f6f3"><span class="dots"><i style="background:#4a4a4a"></i><i style="background:#b89b5e"></i><i style="background:#1a1a1a"></i></span>Charcoal &amp; Gold</button>
+      </div>
+      <div class="swatch-grid">
+        <div class="swatch"><input type="color" id="cPrimary" value="#6c5ce7" /><div><div class="sw-label">Primary</div><div class="sw-hex" id="hPrimary">#6c5ce7</div></div></div>
+        <div class="swatch"><input type="color" id="cAccent" value="#58d6c9" /><div><div class="sw-label">Accent</div><div class="sw-hex" id="hAccent">#58d6c9</div></div></div>
+        <div class="swatch"><input type="color" id="cDark" value="#1b1540" /><div><div class="sw-label">Dark background</div><div class="sw-hex" id="hDark">#1b1540</div></div></div>
+        <div class="swatch"><input type="color" id="cLight" value="#faf8ff" /><div><div class="sw-label">Light background</div><div class="sw-hex" id="hLight">#faf8ff</div></div></div>
+      </div>
+      <p class="help">Primary = buttons &amp; highlights · Accent = small pops &amp; badges · Dark = hero/footer · Light = page background.</p>
+    </section>
+
+    <!-- 4. Fonts -->
+    <section class="block">
+      <h2><span class="block-num">4</span> Fonts</h2>
+      <p class="hint">Pick a pairing, or leave as-is. The preview headline and text update live.</p>
+      <div class="fontrow">
+        <div class="field"><label for="fHead">Headings</label>
+          <select id="fHead">
+            <option value="Fraunces">Fraunces — elegant serif (current)</option>
+            <option value="Playfair Display">Playfair Display — classic serif</option>
+            <option value="Lora">Lora — soft, readable serif</option>
+            <option value="Poppins">Poppins — modern geometric</option>
+            <option value="Space Grotesk">Space Grotesk — contemporary</option>
+            <option value="Inter">Inter — clean sans</option>
+          </select>
+        </div>
+        <div class="field"><label for="fBody">Body text</label>
+          <select id="fBody">
+            <option value="Inter">Inter — clean &amp; neutral (current)</option>
+            <option value="Poppins">Poppins — friendly geometric</option>
+            <option value="Lora">Lora — warm serif</option>
+            <option value="Space Grotesk">Space Grotesk — techy</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label for="fontnote">Prefer a specific font you already use? Tell us here</label><input type="text" id="fontnote" placeholder="e.g. our brand font is Gotham" /></div>
+    </section>
+
+    <!-- 5. Content review -->
+    <section class="block">
+      <h2><span class="block-num">5</span> Content &amp; wording</h2>
+      <p class="hint">Keep, tweak, or rewrite the words in each section. Leave blank to keep what's there.</p>
+
+      <details class="sec"><summary>Hero headline</summary><div class="sec-body">
+        <p class="orig">Current: “The power to transform your life lies within you”</p>
+        <textarea id="cHero" placeholder="New headline (or leave blank to keep)"></textarea>
+      </div></details>
+
+      <details class="sec"><summary>Intro / philosophy</summary><div class="sec-body">
+        <p class="orig">Current: “Rewrite your story in the subconscious, leading to a brighter future.”</p>
+        <textarea id="cPhilo" placeholder="Changes to the philosophy wording..."></textarea>
+      </div></details>
+
+      <details class="sec"><summary>Services — names &amp; descriptions</summary><div class="sec-body">
+        <p class="orig">Current: Individual Hypnotherapy · Group Workshops · Corporate Programs</p>
+        <div class="field"><label for="sv1">Service 1</label><input type="text" id="sv1" placeholder="Name + short description" /></div>
+        <div class="field"><label for="sv2">Service 2</label><input type="text" id="sv2" placeholder="Name + short description" /></div>
+        <div class="field"><label for="sv3">Service 3</label><input type="text" id="sv3" placeholder="Name + short description" /></div>
+        <div class="field"><label for="sv4">Add another service?</label><input type="text" id="sv4" placeholder="Name + short description" /></div>
+      </div></details>
+
+      <details class="sec"><summary>About section</summary><div class="sec-body">
+        <p class="orig">Current: “A practice of experienced hypnotherapists…” Add your real bio, credentials, and photo here.</p>
+        <textarea id="cAbout" placeholder="Your bio, qualifications, years of experience, approach..."></textarea>
+      </div></details>
+
+      <details class="sec"><summary>Testimonials</summary><div class="sec-body">
+        <p class="orig">Currently 2 anonymous quotes. Add real client quotes (with permission) and names/initials.</p>
+        <textarea id="cTesti" placeholder="Paste testimonials here, one per line..."></textarea>
+      </div></details>
+    </section>
+
+    <!-- 6. Add-ons -->
+    <section class="block">
+      <h2><span class="block-num">6</span> Features to add</h2>
+      <p class="hint">Tick anything you'd like included beyond the current build.</p>
+      <div class="checks" id="addons">
+        <label class="check"><input type="checkbox" value="Online booking / scheduling integration" /><span>Online booking<small>Calendly, Acuity, Square, etc.</small></span></label>
+        <label class="check"><input type="checkbox" value="Working contact form (email delivery)" /><span>Working contact form<small>Actually sends you enquiries</small></span></label>
+        <label class="check"><input type="checkbox" value="Pricing / packages section" /><span>Pricing section<small>Session rates &amp; packages</small></span></label>
+        <label class="check"><input type="checkbox" value="FAQ section" /><span>FAQ section<small>Answer common questions</small></span></label>
+        <label class="check"><input type="checkbox" value="Blog / articles" /><span>Blog / articles<small>Share posts &amp; SEO content</small></span></label>
+        <label class="check"><input type="checkbox" value="Photo gallery" /><span>Photo gallery<small>Space, sessions, team</small></span></label>
+        <label class="check"><input type="checkbox" value="Newsletter signup" /><span>Newsletter signup<small>Mailchimp or similar</small></span></label>
+        <label class="check"><input type="checkbox" value="Live chat / WhatsApp button" /><span>Live chat button<small>WhatsApp or chat widget</small></span></label>
+        <label class="check"><input type="checkbox" value="Google reviews / ratings" /><span>Google reviews<small>Pull in live ratings</small></span></label>
+        <label class="check"><input type="checkbox" value="Payment / deposits online" /><span>Online payments<small>Take deposits or payment</small></span></label>
+        <label class="check"><input type="checkbox" value="Multi-page site (separate pages)" /><span>Multi-page layout<small>Split into separate pages</small></span></label>
+        <label class="check"><input type="checkbox" value="SEO & Google setup" /><span>SEO setup<small>Get found on Google</small></span></label>
+      </div>
+    </section>
+
+    <!-- 7. Priorities & notes -->
+    <section class="block">
+      <h2><span class="block-num">7</span> Anything else &amp; priorities</h2>
+      <div class="field">
+        <label>Overall priority</label>
+        <div class="prio" id="prio">
+          <label><input type="radio" name="prio" value="Launch ASAP — go live quickly" /> Launch ASAP</label>
+          <label><input type="radio" name="prio" value="Balanced — get it right, reasonable timeline" checked /> Balanced</label>
+          <label><input type="radio" name="prio" value="Perfect it — take the time needed" /> Perfect it</label>
+        </div>
+      </div>
+      <div class="field"><label for="changes">Your list of changes / wishes</label>
+        <textarea id="changes" style="min-height:130px" placeholder="e.g. Make the hero image a photo of the clinic · Add a 'meet the team' section · I don't like the purple, prefer greens · Add my qualifications · Link Instagram in the footer..."></textarea>
+      </div>
+      <div class="field"><label for="inspo">Websites you like (for inspiration)</label><input type="text" id="inspo" placeholder="Paste any URLs you love the look of" /></div>
+    </section>
+
+    <!-- 8. Sign-off -->
+    <section class="block">
+      <h2><span class="block-num">8</span> Your details</h2>
+      <div class="row">
+        <div class="field"><label for="yourname">Your name</label><input type="text" id="yourname" /></div>
+        <div class="field"><label for="youremail">Your email</label><input type="email" id="youremail" placeholder="So we can follow up" /></div>
+      </div>
+    </section>
+
+  </form>
+
+  <!-- PREVIEW COLUMN -->
+  <aside class="preview-col">
+    <div class="preview-card">
+      <div class="pv-head"><span>Live preview</span><span class="pv-dot"></span></div>
+      <div class="mock">
+        <div class="mock-nav">
+          <div class="mock-logo" id="mockLogo"><span class="ml-ring"></span><span id="mockName">Hypnosis Journey</span></div>
+          <div class="mn-links"><span>Services</span><span>About</span><span>Contact</span></div>
+        </div>
+        <div class="mock-eyebrow">Professional Hypnotherapy</div>
+        <div class="mock-h" id="mockH">The power to transform your life lies <em>within you</em></div>
+        <div class="mock-p" id="mockP">Guided, evidence-informed hypnotherapy for lasting change.</div>
+        <span class="mock-btn">Book a Session</span><span class="mock-btn ghost">Learn more</span>
+      </div>
+      <div class="mock-light">
+        <div class="mock-cardsample">
+          <div class="mc-icon">✦</div>
+          <h4>Individual Hypnotherapy</h4>
+          <p>One-on-one sessions tailored to your goals.</p>
+          <span class="tag">Enquire →</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <h3>Send us your brief</h3>
+      <p class="hint">When you're happy, send it over. You can also download a copy for your records.</p>
+      <button type="button" class="btn btn-primary" id="sendBtn">✉ Send brief to us</button>
+      <button type="button" class="btn btn-secondary" id="copyBtn">⧉ Copy summary</button>
+      <button type="button" class="btn btn-secondary" id="dlBtn">⬇ Download as file</button>
+      <p class="help" id="logoReminder" style="display:none">📎 Don't forget to attach your logo file to the email — we can't receive uploads through this form.</p>
+    </div>
+  </aside>
+
+</div>
+</div>
+
+<p class="foot">Prepared for the Hypnosis Journey website customisation review · Questions? <a href="mailto:jared@myform.au">jared@myform.au</a></p>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+(function(){
+  "use strict";
+  var RECIPIENT = "jared@myform.au"; // where completed briefs are sent
+  var $ = function(id){ return document.getElementById(id); };
+  var root = document.documentElement;
+
+  /* ---- Live colour + font preview ---- */
+  var colourMap = { cPrimary:["--p-primary","hPrimary"], cAccent:["--p-accent","hAccent"], cDark:["--p-dark","hDark"], cLight:["--p-light","hLight"] };
+  function applyColour(id){
+    var el = $(id), m = colourMap[id];
+    root.style.setProperty(m[0], el.value);
+    $(m[1]).textContent = el.value;
+  }
+  Object.keys(colourMap).forEach(function(id){ $(id).addEventListener("input", function(){ applyColour(id); }); });
+
+  /* Presets */
+  document.querySelectorAll(".preset").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var c = btn.getAttribute("data-c").split(",");
+      $("cPrimary").value = "#"+c[0]; $("cAccent").value = "#"+c[1]; $("cDark").value = "#"+c[2]; $("cLight").value = "#"+c[3];
+      Object.keys(colourMap).forEach(applyColour);
+    });
+  });
+
+  /* Fonts */
+  function applyFonts(){
+    var h = $("fHead").value, b = $("fBody").value;
+    root.style.setProperty("--p-head", "'"+h+"', serif");
+    root.style.setProperty("--p-body", "'"+b+"', sans-serif");
+  }
+  $("fHead").addEventListener("change", applyFonts);
+  $("fBody").addEventListener("change", applyFonts);
+
+  /* Text preview binding */
+  $("bizname").addEventListener("input", function(){
+    var v = this.value.trim() || "Hypnosis Journey";
+    $("mockName").textContent = v;
+  });
+  $("tagline").addEventListener("input", function(){
+    var v = this.value.trim();
+    $("mockH").innerHTML = v ? v.replace(/(within you|yourself|you)$/i,"<em>$1</em>") : "The power to transform your life lies <em>within you</em>";
+  });
+  $("cHero").addEventListener("input", function(){
+    var v = this.value.trim();
+    if(v) $("mockH").innerHTML = v.replace(/(within you|yourself|you)$/i,"<em>$1</em>");
+  });
+  $("sv1").addEventListener("input", function(){
+    var v = this.value.trim();
+    if(v){ var parts = v.split(/[-–—:]/); document.querySelector(".mock-cardsample h4").textContent = parts[0].trim(); if(parts[1]) document.querySelector(".mock-cardsample p").textContent = parts.slice(1).join(" ").trim(); }
+  });
+
+  /* ---- Logo upload ---- */
+  var logoData = null, logoFileName = "";
+  function readLogo(file){
+    if(!file || !/^image\//.test(file.type)) return;
+    var r = new FileReader();
+    r.onload = function(e){
+      logoData = e.target.result; logoFileName = file.name;
+      $("logoImg").src = logoData; $("logoName").textContent = file.name;
+      $("logoPrev").classList.add("show");
+      // preview: swap ring for the logo
+      var ml = $("mockLogo");
+      var existing = ml.querySelector("img");
+      if(existing) existing.remove();
+      var ring = ml.querySelector(".ml-ring"); if(ring) ring.style.display="none";
+      var img = document.createElement("img"); img.src = logoData; img.alt="logo";
+      ml.insertBefore(img, ml.firstChild);
+      $("mockName").style.display = "none";
+      $("logoReminder").style.display = "block";
+    };
+    r.readAsDataURL(file);
+  }
+  $("logo").addEventListener("change", function(){ readLogo(this.files[0]); });
+  var drop = $("drop");
+  ["dragenter","dragover"].forEach(function(ev){ drop.addEventListener(ev, function(e){ e.preventDefault(); drop.classList.add("drag"); }); });
+  ["dragleave","drop"].forEach(function(ev){ drop.addEventListener(ev, function(e){ e.preventDefault(); drop.classList.remove("drag"); }); });
+  drop.addEventListener("drop", function(e){ if(e.dataTransfer.files.length) readLogo(e.dataTransfer.files[0]); });
+  $("logoRemove").addEventListener("click", function(){
+    logoData=null; logoFileName="";
+    $("logoPrev").classList.remove("show"); $("logo").value="";
+    var ml=$("mockLogo"); var img=ml.querySelector("img"); if(img) img.remove();
+    var ring=ml.querySelector(".ml-ring"); if(ring) ring.style.display="";
+    $("mockName").style.display=""; $("logoReminder").style.display="none";
+  });
+
+  /* ---- Build the brief ---- */
+  function val(id){ var e=$(id); return e ? e.value.trim() : ""; }
+  function line(label, v){ return v ? "- **"+label+":** "+v+"\n" : ""; }
+  function buildBrief(){
+    var out = "# Website Customisation Brief — Hypnosis Journey\n\n";
+    var who = val("yourname"), wm = val("youremail");
+    if(who || wm) out += "_Submitted by "+(who||"—")+(wm?" ("+wm+")":"")+"_\n\n";
+
+    out += "## 1. Brand basics\n";
+    out += line("Business name", val("bizname"));
+    out += line("Tagline", val("tagline"));
+    out += line("Contact email", val("email"));
+    out += line("Phone", val("phone"));
+    out += line("Address / location", val("address"));
+    out += line("Booking link", val("booking"));
+    out += line("Social links", val("socials"));
+
+    out += "\n## 2. Logo\n";
+    out += logoFileName ? "- Logo provided: **"+logoFileName+"** (attached separately to the email)\n" : "- No logo uploaded — keep the current circular mark / design one for me.\n";
+
+    out += "\n## 3. Colours\n";
+    out += line("Primary", val("hPrimary")===""? $("cPrimary").value : $("cPrimary").value);
+    out += "- **Primary:** "+$("cPrimary").value+"\n- **Accent:** "+$("cAccent").value+"\n- **Dark background:** "+$("cDark").value+"\n- **Light background:** "+$("cLight").value+"\n";
+
+    out += "\n## 4. Fonts\n";
+    out += "- **Headings:** "+$("fHead").value+"\n- **Body:** "+$("fBody").value+"\n";
+    out += line("Preferred brand font", val("fontnote"));
+
+    out += "\n## 5. Content & wording\n";
+    out += line("Hero headline", val("cHero"));
+    out += line("Philosophy", val("cPhilo"));
+    ["sv1","sv2","sv3","sv4"].forEach(function(id,i){ out += line("Service "+(i+1), val(id)); });
+    out += line("About", val("cAbout"));
+    out += line("Testimonials", val("cTesti"));
+
+    out += "\n## 6. Features to add\n";
+    var adds = [];
+    document.querySelectorAll("#addons input:checked").forEach(function(c){ adds.push(c.value); });
+    out += adds.length ? adds.map(function(a){ return "- [x] "+a; }).join("\n")+"\n" : "- (none selected)\n";
+
+    out += "\n## 7. Priorities & notes\n";
+    var pr = document.querySelector("#prio input:checked");
+    out += line("Priority", pr ? pr.value : "");
+    out += line("Inspiration sites", val("inspo"));
+    if(val("changes")) out += "\n**Change list / wishes:**\n\n"+val("changes")+"\n";
+
+    return out;
+  }
+
+  /* ---- Actions ---- */
+  var toast = $("toast");
+  function showToast(msg){ toast.textContent = msg; toast.classList.add("show"); setTimeout(function(){ toast.classList.remove("show"); }, 2600); }
+
+  $("copyBtn").addEventListener("click", function(){
+    var text = buildBrief();
+    if(navigator.clipboard){ navigator.clipboard.writeText(text).then(function(){ showToast("Brief copied to clipboard ✓"); }, fallbackCopy.bind(null,text)); }
+    else fallbackCopy(text);
+  });
+  function fallbackCopy(text){
+    var ta=document.createElement("textarea"); ta.value=text; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); showToast("Brief copied ✓"); }catch(e){ showToast("Press Ctrl/Cmd+C to copy"); }
+    document.body.removeChild(ta);
+  }
+
+  $("dlBtn").addEventListener("click", function(){
+    var text = buildBrief();
+    var name = (val("bizname")||"customisation").replace(/[^a-z0-9]+/gi,"-").toLowerCase();
+    var blob = new Blob([text], {type:"text/markdown"});
+    var a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=name+"-brief.md";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    showToast("Downloaded — keep a copy for your records ✓");
+  });
+
+  $("sendBtn").addEventListener("click", function(){
+    var text = buildBrief();
+    var subject = "Website customisation brief — "+(val("bizname")||"Hypnosis Journey");
+    var body = text + (logoFileName ? "\n\n(Please remember to attach the logo file: "+logoFileName+")" : "");
+    var href = "mailto:"+RECIPIENT+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+    if(href.length > 1900){
+      // Too long for some mail clients — copy instead and open a blank email
+      fallbackCopy(text);
+      showToast("Brief copied — opening your email, just paste it in");
+      window.location.href = "mailto:"+RECIPIENT+"?subject="+encodeURIComponent(subject);
+    } else {
+      window.location.href = href;
+    }
+    if(logoFileName) setTimeout(function(){ $("logoReminder").scrollIntoView({behavior:"smooth",block:"center"}); }, 300);
+  });
+})();
+</script>
+</body>
+</html>
